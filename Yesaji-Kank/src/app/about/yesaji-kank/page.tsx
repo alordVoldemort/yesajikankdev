@@ -12,7 +12,7 @@ export const Info = {
     {
       name: "येसाजी कंकांबद्दल माहिती",
       desc1:
-        "येसाजींचे नाव ऐकताच येसाजींनी तलवार उगारली. क्षणभर पातं चमकलं, दुसऱ्याच क्षणी सोंडेवर वार करून येसाजी बाजूला झाले.  वारामध्ये हत्तीची सोंड कापली गेली होती-श्रीमान योगी कादंबरीमध्ये उल्लेख असलेला कुतुबशहाच्या दरबारात घडलेला हा प्रसंग आपल्या नजरेसमोर उभा राहतो!",
+        "येसाजींचे नाव ऐकताच येसाजींनी तलवार उगारली, क्षणभर पातं चमकलं, दुसऱ्याच क्षणी सोंडेवर वार करून येसाजी बाजूला झाले.  वारामध्ये हत्तीची सोंड कापली गेली होती-श्रीमान योगी कादंबरीमध्ये उल्लेख असलेला, कुतुबशहाच्या दरबारात घडलेला हा प्रसंग आपल्या नजरेसमोर उभा राहतो!",
       desc2:
         "येसाजी कंक यांचा जन्म इ.स. १६२६ मध्ये भुतोंडे गावात, राजगडाच्या पायथ्याशी झाला होता. येसाजी हे शारीरिक दृष्ट्या सशक्त आणि बलदंड शरीरयष्टीचे होते.",
       desc3:
@@ -42,8 +42,17 @@ export const Info = {
 };
 
 export default function YesajiKankPage() {
-  const { lang, textFontClass } = useLanguage();
+  const { lang, textFontClass, digitFontClass } = useLanguage();
   const currentData = Info[lang][0];
+
+  // Wrap Devanagari numerals in digitFontClass span so they render correctly
+  function renderText(text: string) {
+    return text.split(/([०-९]+)/g).map((part, i) =>
+      /^[०-९]+$/.test(part)
+        ? <span key={i} className={digitFontClass}>{part}</span>
+        : part
+    );
+  }
 
   return (
     <main className={` ${textFontClass}`}>
@@ -112,13 +121,13 @@ export default function YesajiKankPage() {
                 className={`relative z-10 flex flex-col text-[#f8e8d0] text-start
                       ${lang === "en"
                     ? "gap-1 sm:gap-2 px-10 sm:px-12 md:px-14  min-[350px]:px-15 min-[400px]:px-17 min-[500px]:px-25 min-[300px]:max-[345px]:px-13 min-[372px]:max-[376px]:px-16  lg:px-15"
-                    : "gap-1 sm:px-15 sm:gap-2 md:gap-3 min-[350px]:px-17 min-[400px]:px-17 min-[500px]:px-25 min-[300px]:max-[345px]:px-15 min-[372px]:max-[376px]:px-17 "
+                    : "gap-1 sm:px-15 sm:gap-2 md:gap-3 min-[350px]:px-17 min-[400px]:px-17 min-[500px]:px-25 min-[300px]:max-[345px]:px-15 min-[372px]:max-[376px]:px-17 font-devanagari"
                   }`}
               >
                 <p className={`${lang === 'en'
                   ? "text-[10px] sm:text-[12px] md:text-[13px] sm:leading-snug min-[400px]:text-[8px] min-[500px]:text-[11px] min-[350px]:text-[8px] min-[350px]:pt-2 min-[300px]:max-[345px]:text-[7px] min-[372px]:max-[376px]:text-[7px] min-[372px]:max-[376px]:pt-1 min-[359px]:max-[361px]:text-[7px] min-[359px]:max-[361px]:pt-1"
                   : "text-[10px] sm:text-[12px] md:text-[13px]  lg:text-[15px] sm:leading-snug min-[400px]:leading-[1.5] min-[500px]:text-[13px] min-[350px]:text-[10px] min-[350px]:pt-2 min-[300px]:max-[345px]:text-[8px] min-[372px]:max-[376px]:text-[8px] min-[372px]:max-[376px]:pt-2 min-[359px]:max-[361px]:text-[8px]"
-                  }`}  >                {currentData.desc1}
+                  }`}  >                {lang === "mr" ? renderText(currentData.desc1) : currentData.desc1}
                 </p>
 
 
@@ -129,7 +138,7 @@ export default function YesajiKankPage() {
                   : "text-[10px] sm:text-[12px] md:text-[13px]  lg:text-[15px] sm:leading-snug pt-2 min-[400px]:pt-5 min-[400px]:leading-[1.5] min-[500px]:text-[13px] min-[500px]:leading[1] min-[350px]:text-[10px] min-[300px]:max-[345px]:text-[8px] min-[372px]:max-[376px]:text-[8px] min-[372px]:max-[376px]:pt-5 min-[359px]:max-[361px]:text-[8px] min-[359px]:max-[361px]:pt-4"
 
                   }`}>
-                  {currentData.desc2}
+                  {lang === "mr" ? renderText(currentData.desc2) : currentData.desc2}
                 </p>
 
                 <p className={`${lang === 'en'
@@ -138,7 +147,7 @@ export default function YesajiKankPage() {
 
 
                   }`}>
-                  {currentData.desc3}
+                  {lang === "mr" ? renderText(currentData.desc3) : currentData.desc3}
                 </p>
 
                 <p className={`${lang === 'en'
@@ -146,14 +155,14 @@ export default function YesajiKankPage() {
                   : "text-[10px] sm:text-[12px] md:text-[13px]  lg:text-[15px] sm:leading-snug pt-2 min-[400px]:pt-5 min-[400px]:leading-[1.5] min-[500px]:text-[15px] min-[350px]:text-[10px] min-[300px]:max-[345px]:text-[8px] min-[372px]:max-[376px]:text-[8px] min-[372px]:max-[376px]:pt-5 min-[359px]:max-[361px]:text-[8px] min-[359px]:max-[361px]:pt-4"
 
                   }`}>
-                  {currentData.desc4}
+                  {lang === "mr" ? renderText(currentData.desc4) : currentData.desc4}
                 </p>
 
                 <p className={`${lang === "en"
                   ? "pt-1  text-[10px] sm:text-[12px] md:text-[13px]  sm:leading-snug pt-2 min-[400px]:pt-3  min-[400px]:text-[8px] min-[500px]:text-[11px] min-[350px]:text-[8px] min-[300px]:max-[345px]:text-[7px] min-[372px]:max-[376px]:text-[7px] min-[372px]:max-[376px]:pt-3 min-[359px]:max-[361px]:text-[7px] min-[359px]:max-[361px]:pt-2"
                   : "pt-1  text-[10px] sm:text-[12px] md:text-[13px] lg:text-[15px] sm:leading-snug pt-2 min-[400px]:pt-5  min-[400px]:leading-[1.5] min-[500px]:text-[15px] min-[350px]:text-[10px] min-[300px]:max-[345px]:text-[8px] min-[372px]:max-[376px]:text-[8px] min-[372px]:max-[376px]:pt-5 min-[359px]:max-[361px]:text-[8px] min-[359px]:max-[361px]:pt-3"
                   }`}>
-                  {currentData.desc5}
+                  {lang === "mr" ? renderText(currentData.desc5) : currentData.desc5}
                 </p>
               </div>
             </div>

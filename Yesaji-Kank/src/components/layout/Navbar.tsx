@@ -176,7 +176,7 @@ export default function Navbar() {
               className="flex flex-col items-center transition duration-300 hover:text-orange-500"
             >
               <span
-                className={`text-[16px] leading-none ${
+                className={`font-devanagari text-[14px] leading-none translate-y-[2px] ${
                   lang === "mr"
                     ? "text-gray-900 font-semibold"
                     : "text-gray-500"
@@ -200,8 +200,7 @@ export default function Navbar() {
               className="flex flex-col items-center transition duration-300 hover:text-orange-500"
             >
               <span
-
-                className={`text-[16px] leading-none ${
+                className={`font-english text-[14px] leading-none ${
                   lang === "en"
                     ? "text-gray-900 font-semibold"
                     : "text-gray-500"
@@ -307,7 +306,7 @@ export default function Navbar() {
             <li className="flex items-center gap-2 px-6 py-3 text-gray-700">
               <button
                 onClick={() => setLang("mr")}
-                className={`transition duration-300 ${
+                className={`font-devanagari text-[14px] transition duration-300 ${
                   lang === "mr"
                     ? "text-orange-600 font-semibold"
                     : "hover:text-orange-500"
@@ -318,7 +317,7 @@ export default function Navbar() {
               <span className="text-gray-400">|</span>
               <button
                 onClick={() => setLang("en")}
-                className={`transition duration-300 ${
+                className={`font-english text-[14px] transition duration-300 ${
                   lang === "en"
                     ? "text-orange-600 font-semibold"
                     : "hover:text-orange-500"

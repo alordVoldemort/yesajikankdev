@@ -14,7 +14,7 @@ const content = {
         </p>
 
         <p className="leading-relaxed">
-          महाभारतामध्ये पांडवांना १२ वर्षांचा वनवास व १ वर्षाचा अज्ञातवास होता.
+          महाभारतामध्ये पांडवांना <span style={{ fontFamily: "var(--font-devanagari), sans-serif" }}>१२</span> वर्षांचा वनवास व <span style={{ fontFamily: "var(--font-devanagari), sans-serif" }}>१</span> वर्षाचा अज्ञातवास होता.
           या अज्ञातवासामध्ये युधिष्ठिराने विराट राजाच्या पदरी सेवा करत असताना
           'कंक' हे उपनाव धारण केले. साताऱ्याजवळील वाई येथील वैराटगडच्या भागातील
           वैराट समाजावर पांडवांनी विजय मिळवला व हे सर्व पांडवांचे अनुयायी
@@ -25,7 +25,7 @@ const content = {
     card2: (
       <>
         <p className="mb-4 leading-relaxed">
-          १६०० व्या शतकात महाराष्ट्रातील सह्याद्री नावाच्या कुरुक्षेत्रावर
+          <span style={{ fontFamily: "var(--font-devanagari), sans-serif" }}>१६००</span> व्या शतकात महाराष्ट्रातील सह्याद्री नावाच्या कुरुक्षेत्रावर
           छ.शिवाजी महाराजांच्या रुपी कृष्ण अवतरले. अन्याय, अधर्म आणि
           असत्याविरुद्ध रणशिंग फुंकणाऱ्या कृष्णाला 'येसाजी कंक' नावाच्या
           युधिष्ठिराची साथ लाभली.
@@ -33,7 +33,7 @@ const content = {
 
         <p className="leading-relaxed">
           स्वतंत्र हिंदवी स्वराज्याचे पराक्रमी योद्धे सरनोबत येसाजी यांचा जन्म
-          इ.स. १६२६ साली भोर जवळील भुतोंडे गावी कंक घराण्यात झाला.
+          इ.स. <span style={{ fontFamily: "var(--font-devanagari), sans-serif" }}>१६२६</span> साली भोर जवळील भुतोंडे गावी कंक घराण्यात झाला.
         </p>
       </>
     ),
@@ -42,26 +42,26 @@ const content = {
       <>
         <p className="mb-4 leading-relaxed">
           पिळदार शरीरयष्टीचे व बलशाली बाहूंचे येसाजी कंक हे छ.शिवाजी
-          महाराजांच्या बालपणीचेसवगंडी होते १६४५ साली रायरेश्वर येथे छ.शिवाजी
+          महाराजांच्या बालपणीचे सवगंडी होते <span style={{ fontFamily: "var(--font-devanagari), sans-serif" }}>१६४५</span> साली रायरेश्वर येथे छ.शिवाजी
           महाराजांनी येसाजी कंक आणि काही मोजक्या मावळ्यांसह स्वराज्याची शप्पथ
-          घेतली.
+          घेतली. (इ.स. <span style={{ fontFamily: "var(--font-devanagari), sans-serif" }}>१६४५</span>)
         </p>
 
         <p className="leading-relaxed">
-          स्वराज्यात पहिला गड 'तोरणा' घेण्यापासनू ते १६९० साली छ.राजाराम
+          स्वराज्यात पहिला गड 'तोरणा' घेण्यापासनू ते <span style={{ fontFamily: "var(--font-devanagari), sans-serif" }}>१६९०</span> साली छ.राजाराम
           महाराजांच्या कार्यकाळात जेष्ठ सल्लागार म्हणनू येसाजींनी प्रत्येक मोहीम
-          व योजना साहसी आणि नीति मानाने लढले.
+          व योजना साहसी आणि नीतिमानाने लढले.
         </p>
         <p className="leading-relaxed">
           छ.शिवाजी महाराजांच्या आयुष्यातील जवळपास सर्व महत्वपूर्ण घटनांमध्ये
           येसाजी कंकांचा सहभाग आढळतो. अफझलखान वध, लाल महाल प्रंसग , आग्रा भेट,
-          दक्षिण दिग्विजय तसेच फोंडा किल्ला युद्धात वयाच्या ५० व्या वर्षी हाती
-          समशरे घेऊन पोर्तुगीजांशी लढा देणारे येसाजी कंक साहस, अढळ, स्वाभिमान
+          दक्षिण दिग्विजय तसेच फोंडा किल्ला युद्धात वयाच्या <span style={{ fontFamily: "var(--font-devanagari), sans-serif" }}>५०</span> व्या वर्षी हाती
+           समशेर पोर्तुगीजांशी लढा देणारे येसाजी कंक साहस, अढळ, स्वाभिमान
           आणि स्वामिनिष्ठ यांचे सर्वोच्च उदाहरण ठरतात.
         </p>
         <p className="leading-relaxed">
-          'स्वराज्य हेच सर्वस्व' मानून स्वराज्यसेवेच्या ३० वर्षा त येसाजी कंक
-          फक्त २० वेळा आपल्या निवासस्थानी गेले.
+          'स्वराज्य हेच सर्वस्व' मानून स्वराज्यसेवेच्या <span style={{ fontFamily: "var(--font-devanagari), sans-serif" }}>३०</span> वर्षात येसाजी कंक
+          फक्त <span style={{ fontFamily: "var(--font-devanagari), sans-serif" }}>२०</span> वेळा आपल्या निवासस्थानी गेले.
         </p>
       </>
     ),
@@ -201,7 +201,7 @@ export default function KankFamilyPage() {
               {/* Text */}
               <div className="overflow-y-auto scrollbar-hide">
                 <div className="min-h-full flex flex-col justify-center py-4">
-                  <div className="text-[#3f2a1c] text-sm md:text-base leading-[2.0] font-medium whitespace-pre-line [&>p]:mb-4 [&>p:last-child]:mb-0">
+                  <div className={`text-[#3f2a1c] text-sm md:text-base leading-[2.0] font-medium whitespace-pre-line [&>p]:mb-4 [&>p:last-child]:mb-0 ${lang === "mr" ? "font-devanagari" : ""}`}>
                     {t.card1}
                   </div>
                 </div>
@@ -276,7 +276,7 @@ export default function KankFamilyPage() {
               {/* Text */}
               <div className="overflow-y-auto scrollbar-hide">
                 <div className="min-h-full flex flex-col justify-center py-4">
-                  <div className="text-[#3f2a1c] text-sm md:text-base leading-[2.0] font-medium whitespace-pre-line [&>p]:mb-4 [&>p:last-child]:mb-0">
+                  <div className={`text-[#3f2a1c] text-sm md:text-base leading-[2.0] font-medium whitespace-pre-line [&>p]:mb-4 [&>p:last-child]:mb-0 ${lang === "mr" ? "font-devanagari" : ""}`}>
                     {t.card2}
                   </div>
                 </div>
@@ -330,7 +330,7 @@ export default function KankFamilyPage() {
               {/* Text */}
               <div className="overflow-y-auto scrollbar-hide">
                 <div className="min-h-full flex flex-col justify-center py-4">
-                  <div className="text-[#3f2a1c] text-sm md:text-base leading-[2.0] font-medium whitespace-pre-line [&>p]:mb-4 [&>p:last-child]:mb-0">
+                  <div className={`text-[#3f2a1c] text-sm md:text-base leading-[2.0] font-medium whitespace-pre-line [&>p]:mb-4 [&>p:last-child]:mb-0 ${lang === "mr" ? "font-devanagari" : ""}`}>
                     {t.card3}
                   </div>
                 </div>

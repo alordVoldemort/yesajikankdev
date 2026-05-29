@@ -151,7 +151,16 @@ function isTabletNeedingMobileView(): boolean {
 }
 
 export default function SwarajyaContributionPage() {
-  const { lang ,textFontClass} = useLanguage();
+  const { lang, textFontClass, digitFontClass } = useLanguage();
+
+  // Wrap Devanagari numerals (०-९) in digitFontClass span so they render correctly
+  function renderText(text: string) {
+    return text.split(/([०-९]+)/g).map((part, i) =>
+      /^[०-९]+$/.test(part)
+        ? <span key={i} className={digitFontClass}>{part}</span>
+        : part
+    );
+  }
   const t = content[lang];
 
   const rowContainerRef = useRef<HTMLDivElement>(null);
@@ -444,7 +453,7 @@ export default function SwarajyaContributionPage() {
                         <div className="absolute top-3 left-3 md:top-5 md:left-5 z-20">
                           <span
                             className="text-white text-[24px] font-semibold drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]"
-                            style={{ fontFamily: "'IBM Plex Sans Devanagari', sans-serif" }}
+                            style={{ fontFamily: "var(--font-devanagari), sans-serif" }}
                           >
                             {lang === "mr" ? item.yearMr : item.yearEn}
                           </span>
@@ -461,8 +470,8 @@ export default function SwarajyaContributionPage() {
                           className="object-cover rounded-[20px]"
                         />
                         <div className="absolute inset-0 flex items-center justify-center px-8 md:px-14 py-8 md:py-10">
-                          <p className={`relative z-10 text-black text-[18px] sm:text-[20px] leading-[1.6] break-words text-left w-full`}>
-                            {lang === "mr" ? item.textMr : item.textEn}
+                          <p className={`relative z-10 text-black text-[18px] sm:text-[20px] leading-[1.6] break-words text-left w-full ${lang === "mr" ? "font-devanagari" : ""}`}>
+                            {lang === "mr" ? renderText(item.textMr) : item.textEn}
                           </p>
                         </div>
                       </div>
@@ -494,7 +503,7 @@ export default function SwarajyaContributionPage() {
                       <div className="absolute top-2 left-2 md:top-5 md:left-5 z-20">
                         <span
                           className="text-white text-[18px] md:text-[36px] font-semibold drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]"
-                          style={{ fontFamily: "'IBM Plex Sans Devanagari', sans-serif" }}
+                          style={{ fontFamily: "var(--font-devanagari), sans-serif" }}
                         >
                           {lang === "mr" ? item.yearMr : item.yearEn}
                         </span>
@@ -510,8 +519,8 @@ export default function SwarajyaContributionPage() {
                         className="object-cover"
                       />
                       <div className="absolute inset-0 flex items-center justify-center px-5 md:px-12 py-6 md:py-8">
-                        <p className={`text-black text-[16px] sm:text-[18px] md:text-[20px] lg:text-[24px] xl:text-[28px] leading-[1.5] break-words text-left w-full`}>
-                          {lang === "mr" ? item.textMr : item.textEn}
+                        <p className={`text-black text-[16px] sm:text-[18px] md:text-[20px] lg:text-[24px] xl:text-[28px] leading-[1.5] break-words text-left w-full ${lang === "mr" ? "font-devanagari" : ""}`}>
+                          {lang === "mr" ? renderText(item.textMr) : item.textEn}
                         </p>
                       </div>
                     </div>
