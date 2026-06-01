@@ -33,7 +33,7 @@ export default function Features() {
             <h3 className="font-semibold text-lg text-white font-devanagari">
               {feature.title}
             </h3>
-            <p className="text-sm text-white/60">{feature.description}</p>
+            <p className="text-sm text-white/60 ">{feature.description}</p>
           </div>
         ))}
       </div>

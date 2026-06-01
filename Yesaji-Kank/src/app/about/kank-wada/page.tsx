@@ -126,7 +126,7 @@ export default function KankWadaPage() {
                   className="w-[78%] max-w-[320px] h-auto rounded-2xl mb-5 sm:mb-6"
                 />
 
-                <div className={`w-full text-center text-[13px] sm:text-[15px] leading-6 sm:leading-7 space-y-2 ${lang ==="mr" ? "lg:text-[18px] md:text-[18px]" : ""}`}>
+                <div className={`w-full text-center text-[13px] sm:text-[15px] leading-6 sm:leading-7 space-y-2 ${lang === "mr" ? "lg:text-[18px] md:text-[18px] font-devanagari" : ""}`}>
                   {renderLines(datas.section1)}
                 </div>
 
@@ -136,7 +136,7 @@ export default function KankWadaPage() {
                   className="w-[70%] max-w-[320px] h-auto rounded-2xl my-5 sm:my-6"
                 />
 
-                <div className={`w-full text-center text-[13px] sm:text-[15px] leading-6 sm:leading-7 space-y-2 ${lang === "mr" ? "lg:text-[18px] md:text-[18px]" :""}`}>
+                <div className={`w-full text-center text-[13px] sm:text-[15px] leading-6 sm:leading-7 space-y-2 ${lang === "mr" ? "lg:text-[18px] md:text-[18px] font-devanagari" : ""}`}>
                   {renderLines(datas.section2)}
                 </div>
 
@@ -146,7 +146,7 @@ export default function KankWadaPage() {
                   className="w-[72%] max-w-[320px] h-auto rounded-2xl my-5 sm:my-6"
                 />
 
-                <div className={`w-full text-center text-[13px] sm:text-[15px] leading-6 sm:leading-7 space-y-2 ${lang === "mr" ? "lg:text-[18px] md:text-[18px]" :""}`}>
+                <div className={`w-full text-center text-[13px] sm:text-[15px] leading-6 sm:leading-7 space-y-2 ${lang === "mr" ? "lg:text-[18px] md:text-[18px] font-devanagari" : ""}`}>
                   {renderLines(datas.section3)}
                 </div>
               </div>

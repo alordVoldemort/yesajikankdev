@@ -181,22 +181,24 @@ export default function Hero() {
         <div className="max-w-[1200px] mx-auto px-6 md:px-10 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
           {/* Left Side: Descriptive Text */}
           <div className="flex flex-col gap-6 text-[#1F1F1F]">
-            <p className="text-[15px] sm:text-[17px] md:text-[19px] lg:text-[20px] leading-[1.7] font-medium text-justify">
+            <p className="text-[15px] sm:text-[17px] md:text-[19px] lg:text-[20px] leading-[1.7] font-semibold text-justify">
               {trusts[0]?.desc1}
             </p>
-            <p className="text-[15px] sm:text-[17px] md:text-[19px] lg:text-[20px] leading-[1.7] font-medium text-justify">
-              {trusts[0]?.desc2.split("सांस्कृतिक").map((part, index, arr) => (
+            <p className="text-[15px] sm:text-[17px] md:text-[19px] lg:text-[20px] leading-[1.7] font-semibold text-justify ">
+              {trusts[0]?.desc2.split("इतिहासाची").map((part, index, arr) => (
                 <span key={index}>
                   {part}
                   {index !== arr.length - 1 && (
-                    <span className="font-historical-marathi">सांस्कृतिक</span>
+                    <span className="font-devanagari font-semibold text-[1.0em] leading-[inherit] relative top-[-1px]">
+                      इतिहासाची
+                    </span>
                   )}
                 </span>
               ))}
             </p>
 
             {/* Read More Button */}
-            <button className="mt-4 w-[140px] sm:w-[180px] h-[38px] sm:h-[45px] rounded-full border border-white bg-[#BD512A] text-white text-[13px] sm:text-[15px] font-bold flex items-center justify-center gap-2 shadow-lg hover:bg-[#a94822] transition-all">
+            {/* <button className="mt-4 w-[140px] sm:w-[180px] h-[38px] sm:h-[45px] rounded-full border border-white bg-[#BD512A] text-white text-[13px] sm:text-[15px] font-bold flex items-center justify-center gap-2 shadow-lg hover:bg-[#a94822] transition-all">
               {trusts[0]?.btn}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -212,7 +214,7 @@ export default function Hero() {
                   d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
                 />
               </svg>
-            </button>
+            </button> */}
           </div>
 
           {/* Right Side: Image Gallery */}
@@ -433,9 +435,16 @@ export default function Hero() {
                 {/* Description */}
                 <div className="flex-1 flex items-center justify-center mt-4">
                   <p
-                    className={`text-center text-[#1a0f08] ${lang === "mr" ? "text-[14px] md:text-[16px]" : "text-[11px] md:text-[13px]"} font-medium leading-relaxed px-4`}
+                    className={`text-center text-[#1a0f08] ${lang === "mr" ? "text-[14px] md:text-[16px]" : "text-[11px] md:text-[13px]"} font-medium leading-relaxed px-4 `}
                   >
-                    {item.desc || "Information about the collection goes here."}
+                    {(item.desc || "Information about the collection goes here.").split("जाई").map((part, i, arr) => (
+                      <span key={i}>
+                        {part}
+                        {i !== arr.length - 1 && (
+                          <span className="font-devanagari text-inherit leading-[inherit]">जाई</span>
+                        )}
+                      </span>
+                    ))}
                   </p>
                 </div>
 
@@ -512,7 +521,15 @@ export default function Hero() {
                   </h4>
 
                   <p className="ml-3 sm:ml-0 text-[#3d2b1f] text-[14px] sm:text-[15px] md:text-[16px] leading-relaxed text-justify ">
-                    {item.desc}
+                    {item.desc.split(/(इतिहासात|इतिहास)/).map((part, i) =>
+                      /^(इतिहासात|इतिहास)$/.test(part) ? (
+                        <span key={i} className="font-devanagari text-inherit leading-[inherit]">
+                          {part}
+                        </span>
+                      ) : (
+                        <span key={i}>{part}</span>
+                      )
+                    )}
                   </p>
                 </div>
               </div>

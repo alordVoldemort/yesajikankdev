@@ -296,7 +296,7 @@ export default function DonationPage() {
     if (!emailRegex.test(formData.email))
       newErrors.email =
         lang === "mr"
-          ? "वैध ईमेल टाका (.com, .in किंवा .net)"
+          ? "वैध ईमेल पत्ता टाका (.com, .in किंवा .net)"
           : "Enter a valid email ending with .com, .in or .net";
 
     if (!formData.city.trim())
@@ -506,7 +506,7 @@ export default function DonationPage() {
               className={`
           text-center
           text-white
-          font-bold
+            font-normal
 
           leading-[1.45]
 
@@ -528,13 +528,13 @@ export default function DonationPage() {
                 lg:max-w-[900px]
               `
               : `
-                max-w-[210px]
-                min-[360px]:max-w-[240px]
-                min-[390px]:max-w-[270px]
+                max-w-[220px]
+                min-[360px]:max-w-[255px]
+                min-[390px]:max-w-[285px]
 
-                sm:max-w-[430px]
-                md:max-w-[560px]
-                lg:max-w-[760px]
+                sm:max-w-[420px]
+                md:max-w-[500px]
+                lg:max-w-[700px]
               `
           }
         `}
@@ -836,7 +836,7 @@ export default function DonationPage() {
                       <motion.p
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
-                        className="text-red-500 text-sm mt-1"
+                        className="text-red-500 text-sm mt-1 font-devanagari"
                       >
                         {errors.email}
                       </motion.p>
@@ -1077,9 +1077,9 @@ export default function DonationPage() {
                         mobile: "",
                         email: "",
                         city: "",
-                        amount: "1000",
+                        amount: "",
                         purpose: "",
-                        paymentMethod: "upi",
+                        paymentMethod: "",
                         acceptTerms: false,
                       });
 

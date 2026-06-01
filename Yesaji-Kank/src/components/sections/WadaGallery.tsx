@@ -11,15 +11,14 @@ interface WadaGalleryProps {
 }
 
 /*
- * DESKTOP: Section is PINNED to the viewport for 3x viewport scroll distance.
- *   - Parchment / old-page background fills the full screen.
- *   - As the user scrolls inside the pin window:
- *       1. Center hero image zooms in from nothing.
- *       2. Left pair slides in from the left simultaneously.
- *       3. Right pair slides in from the right simultaneously.
- *   - After all images are revealed the pin releases.
+ * DESKTOP (>= 1024px AND landscape): Section is PINNED for 5x viewport scroll.
+ *   - Parchment background fills the screen.
+ *   - Center hero zooms in, then left/right pairs slide in.
+ *   - iPad Pro LANDSCAPE also gets this grid.
  *
- * MOBILE: Normal flow, stacked images, simple fade-in per card.
+ * MOBILE / TABLET (< 1024px OR any portrait): Pinned horizontal carousel
+ *   using object-contain so images are never cropped.
+ *   - iPad Pro PORTRAIT (1024x1366) falls here, fixing the cut-off issue.
  */
 export default function WadaGallery({ title, description }: WadaGalleryProps) {
   const pinRef = useRef<HTMLDivElement>(null);
@@ -31,9 +30,10 @@ export default function WadaGallery({ title, description }: WadaGalleryProps) {
     const mm = gsap.matchMedia();
 
     /* ------------------------------------------
-       DESKTOP  (>= 768 px)
+       DESKTOP  (>= 1024px AND landscape)
+       iPad Pro landscape included; portrait excluded.
     ------------------------------------------ */
-    mm.add("(min-width: 768px)", () => {
+    mm.add("(min-width: 1024px) and (orientation: landscape)", () => {
       /* Hide all side images and the center BEFORE the section is pinned.
          gsap.set applies instantly so nothing is ever visible on arrival. */
       gsap.set(".wg-center", { scale: 0.5, opacity: 0 });
@@ -88,9 +88,10 @@ export default function WadaGallery({ title, description }: WadaGalleryProps) {
     });
 
     /* ------------------------------------------
-       MOBILE  (< 768 px)
+       MOBILE / TABLET  (< 1024px OR any portrait)
+       iPad Pro portrait falls here -> object-contain, no cropping.
     ------------------------------------------ */
-    mm.add("(max-width: 767px)", () => {
+    mm.add("(max-width: 1023px), (orientation: portrait)", () => {
       /* Slide 1 zooms in; slides 2‑5 wait off-screen to the right */
       gsap.set(".wgm-s1", { scale: 0.88, opacity: 0 });
       gsap.set([".wgm-s2", ".wgm-s3", ".wgm-s4", ".wgm-s5"], { xPercent: 100 });
@@ -149,10 +150,10 @@ export default function WadaGallery({ title, description }: WadaGalleryProps) {
 
   return (
     <>
-      {/* --- DESKTOP - pinned full-screen section --- */}
+      {/* --- DESKTOP / iPad LANDSCAPE - pinned full-screen section --- */}
       <div
         ref={pinRef}
-        className="hidden md:block relative w-full overflow-hidden"
+        className="hidden lg:landscape:block relative w-full overflow-hidden"
         style={{ ...parchment, height: "100svh", minHeight: "100vh" }}
       >
         {/* Paper grain texture */}
@@ -194,11 +195,10 @@ export default function WadaGallery({ title, description }: WadaGalleryProps) {
 
         {/* Header */}
         <div className="absolute top-0 inset-x-0 z-20 text-center pt-10 select-none pointer-events-none">
-          
           <h2
             className="font-black leading-none tracking-tight"
             style={{
-             fontSize: "clamp(1rem, 2.5vw, 2rem)",
+              fontSize: "clamp(1rem, 2.5vw, 2rem)",
               color: "#2a0d00",
               fontFamily: "IBM Plex Sans Devanagari, sans-serif",
             }}
@@ -221,7 +221,7 @@ export default function WadaGallery({ title, description }: WadaGalleryProps) {
         </div>
 
         {/* Image grid - overflow-hidden clips the flying images */}
-        <div className="absolute inset-0 z-10 overflow-hidden grid grid-cols-12 gap-4 px-6 pt-44 pb-8">
+        <div className="absolute inset-0 z-10 overflow-hidden grid grid-cols-12 gap-4 px-6 pt-[clamp(9rem,16vh,11rem)] pb-[8vh]">
           {/* LEFT column */}
           <div className="col-span-3 flex flex-col gap-4">
             <div className="wg-l1 relative flex-1 rounded-2xl overflow-hidden shadow-[0_20px_55px_rgba(0,0,0,0.5)]">
@@ -282,10 +282,10 @@ export default function WadaGallery({ title, description }: WadaGalleryProps) {
         </div>
       </div>
 
-      {/* --- MOBILE — pinned horizontal carousel --- */}
+      {/* --- MOBILE / TABLET / iPad PORTRAIT — pinned horizontal carousel --- */}
       <div
         ref={mobPinRef}
-        className="md:hidden relative w-full overflow-hidden"
+        className="block lg:landscape:hidden relative w-full overflow-hidden"
         style={{ ...parchment, height: "100svh", minHeight: "100vh" }}
       >
         {/* Paper grain */}
@@ -325,7 +325,6 @@ export default function WadaGallery({ title, description }: WadaGalleryProps) {
         <div className="absolute inset-0 z-10 flex flex-col">
           {/* Header */}
           <div className="flex-shrink-0 text-center pt-10 pb-3 px-6 select-none pointer-events-none">
-           
             <h2
               className="font-black leading-none"
               style={{

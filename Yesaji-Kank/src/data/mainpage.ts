@@ -59,7 +59,6 @@ export const Prashansapatr:Record<"mr"|"en", prashansapatr[]> = {
 
 }
 
-
 export const Feedback:Record<"mr"|"en", feedback[]> = {
     mr:[{name:"गणेश पाटील",desc:"येसाजी कंक यांचे कार्य अतिशय प्रेरणादायी आहे. त्यांची निष्ठा आणि शौर्य आजही मार्गदर्शक ठरते. इतिहासात त्यांचे योगदान अत्यंत महत्त्वाचे आहे. अशा महान व्यक्तिमत्त्वाला मनःपूर्वक अभिवादन."},
         {name:"रोहित देशमुख",desc:"येसाजी कंक यांची निष्ठा आणि धैर्य अद्वितीय आहे। त्यांनी स्वराज्यासाठी दिलेले योगदान मोठे आहे। त्यांच्या कार्यामुळे इतिहास उजळला आहे। अशा वीरांना मनःपूर्वक सलाम।"},
@@ -72,7 +71,6 @@ export const Feedback:Record<"mr"|"en", feedback[]> = {
     ]
 
 }
-
 
 export const FooterData: Record<"mr" | "en", FooterInfo[]> = {
   mr: [
@@ -139,9 +137,6 @@ export const FooterData: Record<"mr" | "en", FooterInfo[]> = {
   ]
 };
 
-
-
-
 export const CardText:Record<"mr"|"en", cardtext[]> = {
     mr:[{name:"कृषी", desc:" आधुनिक शेती याचे प्रशिक्षण व मार्गदर्शन"},
         {name:"क्रीडा",desc:"खिलाडूवृत्ती वाढविण्यासाठी क्रीडा स्पर्धांचे आयोजन"},
@@ -155,7 +150,6 @@ export const CardText:Record<"mr"|"en", cardtext[]> = {
     ]
 
 }
-
 
 // सरनोबत येसाजी कंक ट्रस्ट.
 // (Inspired by the bravery, courage, discipline, and wisdom of Swarajya's Chief of Army Yesaji
